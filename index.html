@@ -7,8 +7,11 @@
     <style>
         /* IDENTIDADE VISUAL MÓDULO 3 - VERDE VIBRANTE */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #f0fdf4; color: #1a2a26; scroll-behavior: smooth; }
+        body { background-color: #f0fdf4; color: #1a2a26; scroll-behavior: smooth; line-height: 1.6; }
         
+        /* AJUSTE PARA O MENU FIXO NÃO COBRIR O TÍTULO AO CLICAR */
+        section { scroll-margin-top: 100px; }
+
         .banner-logos { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #eee; }
         .banner-logos img { width: 100%; max-width: 1100px; border-radius: 12px; }
 
@@ -17,14 +20,14 @@
             color: #0b1416; padding: 100px 20px; text-align: center;
             display: flex; flex-direction: column; align-items: center; min-height: 60vh;
         }
-        .hero h1 { font-size: 42px; font-weight: 800; line-height: 1.1; }
+        .hero h1 { font-size: 42px; font-weight: 800; }
         .mod-pill { 
             background: #0b1416; color: #00FF9C; display: inline-block; 
             padding: 10px 40px; border-radius: 12px; font-weight: 900; 
             font-size: 24px; margin: 25px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* MENU FIXO NO TOPO */
+        /* MENU FIXO (STICKY) - IGUAL AO QUE VOCÊ PEDIU */
         nav { 
             background: white; 
             position: -webkit-sticky; 
@@ -34,49 +37,42 @@
             border-bottom: 4px solid #00FF9C; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-        /* COMPENSAÇÃO PARA O CLIQUE NAS ABAS NÃO COBRIR O TÍTULO */
-        section { scroll-margin-top: 80px; }
-
         nav ul { display: flex; justify-content: center; list-style: none; padding: 15px 0; flex-wrap: wrap; gap: 10px; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 12px; padding: 8px 15px; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 12px; padding: 8px 15px; text-transform: uppercase; }
         nav ul li a:hover { color: #2ecc71; }
 
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; padding-bottom: 120px; } /* Espaço extra para os créditos */
         .card { background: white; border-radius: 40px; padding: 50px; margin-bottom: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-        .section-title { font-size: 32px; color: #2ecc71; margin-bottom: 5px; border-bottom: 6px solid #00FF9C; display: inline-block; }
-        .section-subtitle { font-size: 18px; color: #555; font-style: italic; margin-bottom: 25px; display: block; font-weight: 500; }
+        .section-title { font-size: 32px; color: #1a5c37; margin-bottom: 5px; border-bottom: 6px solid #00FF9C; display: inline-block; }
         
-        .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; background: #000; }
         .img-full { width: 100%; max-width: 800px; border-radius: 20px; display: block; margin: 20px auto; }
-        
-        .btn-action { background: #0b1416; color: #00FF9C; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .btn-action:hover { background: #2ecc71; color: white; transform: scale(1.05); }
+        .btn-action { background: #0b1416; color: #00FF9C; padding: 18px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; }
+        .btn-action:hover { background: #1a5c37; color: white; transform: scale(1.02); }
 
-        .podcast-row { display: flex; gap: 30px; align-items: stretch; flex-wrap: wrap; margin-top: 20px; }
-        .audio-card { background: #f0fff4; border: 2px solid #dcfce7; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
+        .podcast-row { display: flex; gap: 30px; align-items: stretch; flex-wrap: wrap; }
+        .audio-card { background: #f0fff4; border: 2px solid #2ecc71; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
 
         .flip-card { flex: 1; min-width: 300px; height: 350px; perspective: 1000px; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; }
-        .flip-front { background: linear-gradient(135deg, #00FF9C 0%, #2ecc71 100%); color: #0b1416; }
-        .flip-back { background: #ffffff; color: #2ecc71; border: 6px solid #00FF9C; transform: rotateY(180deg); }
+        .flip-front { background: #0b1416; color: #00FF9C; }
+        .flip-back { background: #ffffff; color: #0b1416; border: 6px solid #00FF9C; transform: rotateY(180deg); }
 
-        .ref-item { border-left: 4px solid #00FF9C; padding-left: 15px; margin-bottom: 15px; font-size: 15px; line-height: 1.6; }
-        .creditos-list { list-style: none; margin-top: 20px; font-size: 17px; line-height: 1.8; }
-        footer { background: #0b1416; color: white; padding: 60px 20px; text-align: center; }
+        footer { background: #0b1416; color: white; padding: 60px 20px; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="banner-logos">
-        <img src="https://drive.google.com/thumbnail?id=1QOIXz4Wz_mh7SOvM4KU6Jy7LJb3I3f3o&sz=w1200" alt="Logos Institucionais">
-    </div>
-
-    <header class="hero">
-        <h1>Desafios na Atenção Primária à Saúde</h1>
-        <div class="mod-pill">MÓDULO 3</div>
-        <p style="font-size: 20px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores</p>
+    <header>
+        <div class="banner-logos">
+            <img src="https://drive.google.com/thumbnail?id=1QOIXz4Wz_mh7SOvM4KU6Jy7LJb3I3f3o&sz=w1200" alt="Logos">
+        </div>
+        <div class="hero">
+            <h1>Desafios na Atenção Primária à Saúde</h1>
+            <div class="mod-pill">MÓDULO 3</div>
+            <p style="font-size: 22px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores</p>
+        </div>
     </header>
 
     <nav aria-label="Navegação Principal">
@@ -97,19 +93,17 @@
         <section id="boas-vindas" class="card" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 300px;">
                 <h2 class="section-title">Boas-vindas!</h2>
-                <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
-                    Seja bem-vindo ao Módulo 3. Vamos analisar as barreiras estruturais e os desafios práticos enfrentados pelos profissionais da APS, discutindo determinantes sociais através de uma perspectiva crítica baseada em Angela Davis e Achille Mbembe.
-                </p>
-                <div style="background: #e6fffa; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #00FF9C;">
-                    <p style="font-size: 15px; color: #0b1416;"><strong>💡 Importante:</strong> Recomendamos o uso de <strong>fones de ouvido</strong> e uma <strong>boa conexão</strong>.</p>
+                <p style="font-size: 19px; margin-top: 20px;">Seja bem-vindo ao Módulo 3. Vamos analisar as barreiras estruturais e os desafios práticos da APS.</p>
+                <div style="background: #e6fffa; padding: 25px; border-radius: 15px; margin-top: 25px; border-left: 8px solid #00FF9C;">
+                    <p><strong>🎧 Importante:</strong> Recomendamos o uso de <strong>fones de ouvido</strong> e uma <strong>boa conexão</strong>.</p>
                 </div>
             </div>
-            <img src="https://drive.google.com/thumbnail?id=1GG3eSJ7Ts2gWhOdxqrZbMYHqEZ96C1O2&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;" alt="Boas-vindas">
+            <img src="https://drive.google.com/thumbnail?id=1GG3eSJ7Ts2gWhOdxqrZbMYHqEZ96C1O2&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;" alt="Acolhimento">
         </section>
 
         <section id="video-aula" class="card" style="text-align: center;">
             <h2 class="section-title">Vídeo Aula</h2>
-            <div class="video-box">
+            <div class="video-box" style="margin-top: 20px;">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_w2v3LpKPhY" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
@@ -132,17 +126,14 @@
             <div class="podcast-row">
                 <div class="audio-card">
                     <h2 class="section-title">Podcast</h2>
-                    <p style="margin: 20px 0; font-size: 16px; line-height: 1.6;">Debate sobre racismo estrutural e luta de classes no SUS.</p>
-                    <a href="https://drive.google.com/file/d/1jg0GTNr_5GjK_mBCiS46y8t8cSzue-2k/view?usp=sharing" target="_blank" class="btn-action">OUVIR PODCAST ▶</a>
+                    <p style="margin: 20px 0; font-size: 18px;">Debate sobre racismo estrutural e luta de classes no SUS.</p>
+                    <p style="font-size: 14px; margin-bottom: 20px;"><em>Dica: Baixe o arquivo para ouvir offline se preferir.</em></p>
+                    <a href="https://drive.google.com/file/d/1jg0GTNr_5GjK_mBCiS46y8t8cSzue-2k/view?usp=sharing" target="_blank" class="btn-action">OUVIR / BAIXAR PODCAST ▶</a>
                 </div>
-                <div class="flip-card" tabindex="0">
+                <div class="flip-card">
                     <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <h3>Reflexão 1</h3>
-                        </div>
-                        <div class="flip-back">
-                            <h3>Reflexão 2</h3>
-                        </div>
+                        <div class="flip-front"><h3>Reflexão 1</h3></div>
+                        <div class="flip-back"><h3>Reflexão 2</h3></div>
                     </div>
                 </div>
             </div>
@@ -150,27 +141,25 @@
 
         <section id="avaliacao" class="card" style="text-align: center; border: 3px dashed #00FF9C;">
             <h2 class="section-title">Avaliação Final</h2>
-            <p style="margin-top: 10px; font-size: 20px; font-weight: 600; color: #2ecc71;">Venha testar seu aprendizado!</p>
-            <a href="https://forms.gle/bUiJuin3FR2mv5Ny6" target="_blank" class="btn-action" style="width:100%; text-align:center;">ACESSAR FORMULÁRIO 📝</a>
+            <p style="margin: 20px 0; font-size: 20px; font-weight: 600;">Venha testar seu aprendizado!</p>
+            <a href="https://forms.gle/bUiJuin3FR2mv5Ny6" target="_blank" class="btn-action" style="width: 100%;">ACESSAR FORMULÁRIO 📝</a>
         </section>
 
         <section id="referencias" class="card">
             <h2 class="section-title">Referências Bibliográficas</h2>
             <div style="margin-top: 25px;">
-                <p class="ref-item">1. DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> 2016.</p>
-                <p class="ref-item">2. MBEMBE, Achille. <strong>Necropolítica.</strong> 2018.</p>
-                <p class="ref-item">3. MOURA, Clóvis. <strong>Racismo e luta de classes no Brasil.</strong> 2020.</p>
-                <p class="ref-item" style="color: #666; font-size: 13px; border-left: 4px solid #00FF9C;"><strong>4. Nota de Transparência:</strong> Este material contou com o suporte da IA Gemini.</p>
+                <p>1. DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> 2016.</p>
+                <p>2. MBEMBE, Achille. <strong>Necropolítica.</strong> 2018.</p>
+                <p style="color: #666; font-size: 14px; border-left: 5px solid #00FF9C; padding-left: 10px; margin-top: 15px;"><strong>Nota:</strong> Suporte de IA Gemini para estruturação.</p>
             </div>
         </section>
 
         <section id="creditos" class="card">
             <h2 class="section-title">Créditos</h2>
-            <ul class="creditos-list">
+            <ul style="list-style: none; line-height: 2; margin-top: 20px;">
                 <li><strong>Desenvolvimento:</strong> Guilherme Luiz de Freitas</li>
                 <li><strong>Curso:</strong> Administração / UFSC</li>
                 <li><strong>Realização:</strong> Grupo PET 1</li>
-                <li><strong>Parceria:</strong> UFSC, UDESC e Prefeitura de Florianópolis/SC</li>
             </ul>
         </section>
     </main>
