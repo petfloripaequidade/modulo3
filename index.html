@@ -3,54 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 3 - O Trabalho na APS - PET1</title>
+    <title>Módulo 3 - Desafios na APS - PET1</title>
     <style>
+        /* IDENTIDADE VISUAL MÓDULO 3 - VERDE VIBRANTE */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #f0f4f3; color: #1a2a26; scroll-behavior: smooth; }
+        body { background-color: #f0fdf4; color: #1a2a26; scroll-behavior: smooth; }
+        
         .banner-logos { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #eee; }
         .banner-logos img { width: 100%; max-width: 1100px; border-radius: 12px; }
+
         .hero { 
-            background: linear-gradient(135deg, #00FF9C 0%, #73EC8B 100%);
-            color: #003d33; padding: 100px 20px; text-align: center;
+            background: linear-gradient(135deg, #00FF9C 0%, #2ecc71 100%);
+            color: #0b1416; padding: 100px 20px; text-align: center;
             display: flex; flex-direction: column; align-items: center; min-height: 60vh;
         }
-        .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; }
+        .hero h1 { font-size: 42px; font-weight: 800; line-height: 1.1; }
         .mod-pill { 
-            background: white; color: #004d40; display: inline-block; 
+            background: #0b1416; color: #00FF9C; display: inline-block; 
             padding: 10px 40px; border-radius: 12px; font-weight: 900; 
-            font-size: 24px; margin: 25px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 24px; margin: 25px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-        nav { background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid #00FF9C; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        nav ul { display: flex; justify-content: center; list-style: none; padding: 15px 0; flex-wrap: wrap; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 13px; padding: 10px 20px; text-transform: uppercase; }
-        .btn-nav-aval { background: #004d40 !important; color: white !important; border-radius: 20px; }
+
+        /* NAVEGAÇÃO PADRONIZADA */
+        nav { 
+            background: white; position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 4px solid #00FF9C; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        nav ul { display: flex; justify-content: center; list-style: none; padding: 15px 0; flex-wrap: wrap; gap: 10px; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 12px; padding: 8px 15px; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: #2ecc71; }
+
         .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
         .card { background: white; border-radius: 40px; padding: 50px; margin-bottom: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-        .section-title { font-size: 32px; color: #004d40; margin-bottom: 5px; border-bottom: 6px solid #73EC8B; display: inline-block; }
+        .section-title { font-size: 32px; color: #2ecc71; margin-bottom: 5px; border-bottom: 6px solid #00FF9C; display: inline-block; }
         .section-subtitle { font-size: 18px; color: #555; font-style: italic; margin-bottom: 25px; display: block; font-weight: 500; }
+        
         .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; background: #000; }
         .img-full { width: 100%; max-width: 800px; border-radius: 20px; display: block; margin: 20px auto; }
         
+        .btn-action { background: #0b1416; color: #00FF9C; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-action:hover { background: #2ecc71; color: white; transform: scale(1.05); }
+        .btn-aval { width: 100%; text-align: center; font-size: 20px; margin-top: 15px; }
+
         .podcast-row { display: flex; gap: 30px; align-items: stretch; flex-wrap: wrap; margin-top: 20px; }
-        .audio-card { background: #f7fffb; border: 2px solid #e8f5e9; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
-        .btn-audio { background: #004d40; color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
+        .audio-card { background: #f0fff4; border: 2px solid #dcfce7; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
 
         .flip-card { flex: 1; min-width: 300px; height: 350px; perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; }
-        .flip-front { background: linear-gradient(135deg, #00FF9C 0%, #73EC8B 100%); color: #004d40; }
-        .flip-back { background: #ffffff; color: #004d40; border: 6px solid #00FF9C; transform: rotateY(180deg); }
+        .flip-front { background: linear-gradient(135deg, #00FF9C 0%, #2ecc71 100%); color: #0b1416; }
+        .flip-back { background: #ffffff; color: #2ecc71; border: 6px solid #00FF9C; transform: rotateY(180deg); }
 
-        .ref-item { margin-bottom: 12px; font-size: 15px; border-left: 4px solid #00FF9C; padding-left: 15px; text-indent: -15px; margin-left: 15px; }
-        .card-aval { background: #002b2e; color: white; text-align: center; }
-        .btn-final { background: #FF5A5A; color: white; padding: 25px 80px; border-radius: 20px; text-decoration: none; font-weight: 900; font-size: 26px; display: inline-block; margin-top: 30px; transition: 0.3s; }
-        
-        /* ESTILO CRÉDITOS */
+        .ref-item { border-left: 4px solid #00FF9C; padding-left: 15px; margin-bottom: 15px; font-size: 15px; line-height: 1.6; }
         .creditos-list { list-style: none; margin-top: 20px; font-size: 17px; line-height: 1.8; }
-        .creditos-list li strong { color: #004d40; }
-
-        footer { background: #001a1d; color: white; padding: 60px 20px; text-align: center; }
+        footer { background: #0b1416; color: white; padding: 60px 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -60,97 +67,111 @@
     </div>
 
     <header class="hero">
-        <h1>Saúde em Perspectiva:<br>Equidade e Cuidado na APS</h1>
+        <h1>Desafios na Atenção Primária à Saúde</h1>
         <div class="mod-pill">MÓDULO 3</div>
-        <p style="font-size: 20px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores</p>
+        <p style="font-size: 20px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores e Determinantes Sociais</p>
     </header>
 
-    <nav>
+    <nav aria-label="Navegação Principal">
         <ul>
-            <li><a href="#video">Vídeo Aula</a></li>
-            <li><a href="#mapa">Mapa Mental</a></li>
+            <li><a href="#boas-vindas">Boas-vindas</a></li>
+            <li><a href="#video-aula">Vídeo Aula</a></li>
+            <li><a href="#mapa-mental">Mapa Mental</a></li>
+            <li><a href="#infografico">Infográfico</a></li>
             <li><a href="#podcast">Podcast</a></li>
-            <li><a href="#referencias">Referências</a></li>
+            <li><a href="#avaliacao">Avaliação Final</a></li>
+            <li><a href="#referencias">Referências Bibliográficas</a></li>
             <li><a href="#creditos">Créditos</a></li>
-            <li><a href="#aval" class="btn-nav-aval">Avaliação</a></li>
         </ul>
     </nav>
 
     <main class="container">
         
-        <section id="intro" class="card" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+        <section id="boas-vindas" class="card" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 300px;">
                 <h2 class="section-title">Boas-vindas!</h2>
                 <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
-                    Neste módulo, mergulhamos no cotidiano da UBS para entender as barreiras que impedem o cuidado equitativo.
+                    Seja bem-vindo ao Módulo 3. Aqui, analisamos as barreiras estruturais e os desafios práticos enfrentados pelos profissionais da APS. Através de uma perspectiva crítica, discutimos como os determinantes sociais moldam a saúde no território.
                 </p>
-                <div style="background: #e8f5e9; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #00FF9C;">
-                    <p style="font-size: 14px;"><strong>Dica:</strong> Use fones de ouvido para os vídeos e podcasts.</p>
+                <div style="background: #e6fffa; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #00FF9C;">
+                    <p style="font-size: 14px;"><strong>Nota:</strong> Este conteúdo explora as bases da necropolítica e das relações de classe na saúde brasileira.</p>
                 </div>
             </div>
-            <img src="https://drive.google.com/thumbnail?id=1GG3eSJ7Ts2gWhOdxqrZbMYHqEZ96C1O2&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;">
+            <img src="https://drive.google.com/thumbnail?id=1IXNQxJmmbvzaDUR6vkedmBhs0KtBpltH&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;" alt="Acolhimento">
         </section>
 
-        <section id="video" class="card" style="text-align: center;">
+        <section id="video-aula" class="card" style="text-align: center;">
             <h2 class="section-title">Vídeo Aula</h2>
-            <span class="section-subtitle">Vozes da linha de frente: os desafios reais para um cuidado equitativo.</span>
+            <span class="section-subtitle">Análise crítica dos desafios operacionais e sistêmicos da APS.</span>
             <div class="video-box">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/knCi0U-EurU" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO_AQUI" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
 
-        <section id="mapa" class="card" style="text-align: center;">
+        <section id="mapa-mental" class="card" style="text-align: center;">
             <h2 class="section-title">Mapa Mental</h2>
-            <span class="section-subtitle">Uma visão panorâmica dos conceitos fundamentais discutidos no módulo.</span>
-            <img src="https://drive.google.com/thumbnail?id=1oP2pcB_Q4td6IThnmUC58VZJgnLmoSwZ&sz=w1200" class="img-full">
+            <span class="section-subtitle">Estrutura visual dos determinantes sociais e barreiras de acesso.</span>
+            <a href="LINK_DO_SEU_MAPA_MENTAL_MOD3" target="_blank">
+                <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_MOD3&sz=w1200" class="img-full" alt="Mapa Mental Módulo 3">
+            </a>
+        </section>
+
+        <section id="infografico" class="card" style="text-align: center;">
+            <h2 class="section-title">Infográfico</h2>
+            <span class="section-subtitle">Desafios na APS: Da vulnerabilidade ao cuidado integral.</span>
+            <a href="LINK_DO_SEU_INFOGRAFICO_MOD3" target="_blank">
+                <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_MOD3&sz=w1200" class="img-full" alt="Infográfico Módulo 3">
+            </a>
         </section>
 
         <section id="podcast" class="card">
             <div class="podcast-row">
                 <div class="audio-card">
-                    <h2 class="section-title">Podcast: Saúde e Identidade</h2>
-                    <p style="margin: 15px 0; font-size: 16px;">Ouça o bate-papo sobre humanização e as vozes reais na nossa formação. Recomendamos fones de ouvido.</p>
-                    <a href="https://drive.google.com/file/d/1jg0GTNr_5GjK_mBCiS46y8t8cSzue-2k/view?usp=sharing" target="_blank" class="btn-audio">OUVIR AGORA ▶</a>
+                    <h2 class="section-title">Podcast</h2>
+                    <p style="margin: 20px 0; font-size: 16px; line-height: 1.6;">
+                        Debate sobre o racismo estrutural e a luta de classes dentro do contexto da saúde pública brasileira.
+                    </p>
+                    <a href="LINK_DO_SEU_AUDIO_MOD3" target="_blank" class="btn-action">OUVIR PODCAST ▶</a>
                 </div>
-                <div class="flip-card">
+                <div class="flip-card" tabindex="0">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <span style="font-size: 50px;">💡</span>
-                            <h3 style="margin-top: 15px;">Reflexão 1</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"A necropolítica na sala de espera — uma análise sobre quem o sistema escolhe proteger."</p>
+                            <h3>Reflexão 1</h3>
+                            <p style="margin-top: 15px; font-style: italic;">"A saúde não é apenas ausência de doença, é um campo de disputa política e social."</p>
                         </div>
                         <div class="flip-back">
-                            <span style="font-size: 50px;">✊</span>
-                            <h3 style="margin-top: 15px;">Reflexão 2</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"As opressões de raça, gênero e classe se cruzam criando experiências de exclusão únicas no SUS."</p>
+                            <h3>Reflexão 2</h3>
+                            <p style="margin-top: 15px; font-style: italic;">"Reconhecer a necropolítica é o primeiro passo para humanizar o SUS."</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section id="avaliacao" class="card" style="text-align: center; border: 3px dashed #00FF9C;">
+            <h2 class="section-title">Avaliação Final</h2>
+            <p style="margin-top: 10px; font-size: 20px; font-weight: 600; color: #2ecc71;">Venha testar seu aprendizado!</p>
+            <a href="LINK_DO_SEU_FORMS_MOD3" target="_blank" class="btn-action btn-aval">ACESSAR FORMULÁRIO 📝</a>
+        </section>
+
         <section id="referencias" class="card">
-            <h2 class="section-title">Referências</h2>
-            <div style="margin-top: 20px;">
-                <p class="ref-item">DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> Boitempo, 2016.</p>
-                <p class="ref-item">MBEMBE, Achille. <strong>Necropolítica.</strong> n-1 edições, 2018.</p>
-                <p class="ref-item">MOURA, Clóvis. <strong>Racismo e luta de classes no Brasil.</strong> Terra Sem Amos, 2020.</p>
+            <h2 class="section-title">Referências Bibliográficas</h2>
+            <div style="margin-top: 25px;">
+                <p class="ref-item">1. DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> São Paulo: Boitempo, 2016.</p>
+                <p class="ref-item">2. MBEMBE, Achille. <strong>Necropolítica.</strong> São Paulo: n-1 edições, 2018.</p>
+                <p class="ref-item">3. MOURA, Clóvis. <strong>Racismo e luta de classes no Brasil.</strong> Editora Terra Sem Amos, 2020.</p>
+                <p class="ref-item" style="color: #666; font-size: 13px; border-left: 4px solid #2ecc71;"><strong>4. Nota de Transparência:</strong> Este material contou com o suporte da IA Gemini (Google) para estruturação de código, design e síntese pedagógica.</p>
             </div>
         </section>
 
         <section id="creditos" class="card">
             <h2 class="section-title">Créditos</h2>
             <ul class="creditos-list">
-                <li><strong>Organização:</strong> Guilherme Luiz de Freitas</li>
+                <li><strong>Desenvolvimento:</strong> Guilherme Luiz de Freitas</li>
                 <li><strong>Curso:</strong> Administração / UFSC</li>
                 <li><strong>Realização:</strong> Grupo PET 1</li>
-                <li><strong>Instituições Parceiras:</strong> UFSC, UDESC e Prefeitura Municipal de Florianópolis/SC</li>
+                <li><strong>Parceria:</strong> UFSC, UDESC e Prefeitura de Florianópolis/SC</li>
             </ul>
-        </section>
-
-        <section id="aval" class="card card-aval">
-            <h2 style="font-size: 45px; color: #00FF9C;">Avaliação Final</h2>
-            <a href="https://forms.gle/7sMF63twaijPSk5D7" target="_blank" class="btn-final">✓ INICIAR QUESTIONÁRIO</a>
         </section>
 
     </main>
@@ -158,6 +179,5 @@
     <footer>
         <p>Prefeitura de Florianópolis | PET1 Administração - UFSC</p>
     </footer>
-
 </body>
 </html>
