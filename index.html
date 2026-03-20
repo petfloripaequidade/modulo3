@@ -9,11 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body { background-color: #fcf9f5; color: #1a2a26; scroll-behavior: smooth; line-height: 1.6; }
         
-        /* FOCO VISÍVEL PARA ACESSIBILIDADE */
-        a:focus, button:focus, .flip-card:focus {
-            outline: 4px solid #E67E22;
-            outline-offset: 4px;
-        }
+        /* AJUSTE PARA O MENU FIXO NÃO COBRIR O TÍTULO AO CLICAR */
+        section { scroll-margin-top: 80px; }
 
         .banner-logos { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #eee; }
         .banner-logos img { width: 100%; max-width: 1100px; border-radius: 12px; }
@@ -30,10 +27,10 @@
             font-size: 24px; margin: 25px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        /* CONFIGURAÇÃO PARA AS ABAS FICAREM FIXAS NO TOPO (IGUAL AO PRINT) */
+        /* MENU FIXO (STICKY) */
         nav { 
             background: white; 
-            position: -webkit-sticky; /* Suporte para Safari */
+            position: -webkit-sticky; 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
@@ -41,37 +38,33 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
         nav ul { display: flex; justify-content: center; list-style: none; padding: 15px 0; flex-wrap: wrap; gap: 10px; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 12px; padding: 8px 15px; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 700; font-size: 12px; padding: 8px 15px; text-transform: uppercase; }
         nav ul li a:hover { color: #E67E22; }
 
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; padding-bottom: 100px; } /* Espaço extra no fim */
         .card { background: white; border-radius: 40px; padding: 50px; margin-bottom: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
         .section-title { font-size: 32px; color: #628141; margin-bottom: 5px; border-bottom: 6px solid #E67E22; display: inline-block; }
         
-        .video-box { width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; background: #000; }
         .img-full { width: 100%; max-width: 800px; border-radius: 20px; display: block; margin: 20px auto; }
-        
-        .btn-action { background: #E67E22; color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .btn-action:hover { background: #628141; transform: scale(1.05); }
+        .btn-action { background: #E67E22; color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; }
         .btn-aval { background: #628141; width: 100%; text-align: center; font-size: 20px; margin-top: 15px; }
 
         .podcast-row { display: flex; gap: 30px; align-items: stretch; flex-wrap: wrap; }
         .audio-card { background: #fdfaf7; border: 2px solid #faece1; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
 
         .flip-card { flex: 1; min-width: 300px; height: 350px; perspective: 1000px; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
-        .flip-card:hover .flip-card-inner, .flip-card:focus .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; }
         .flip-front { background: linear-gradient(135deg, #E67E22 0%, #628141 100%); color: white; }
         .flip-back { background: #ffffff; color: #628141; border: 6px solid #E67E22; transform: rotateY(180deg); }
 
-        .ref-item { border-left: 4px solid #E67E22; padding-left: 15px; margin-bottom: 15px; font-size: 15px; }
-        footer { background: #1a2a26; color: white; padding: 60px 20px; text-align: center; }
+        footer { background: #1a2a26; color: white; padding: 60px 20px; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <header role="banner">
+    <header>
         <div class="banner-logos">
             <img src="https://drive.google.com/thumbnail?id=1QOIXz4Wz_mh7SOvM4KU6Jy7LJb3I3f3o&sz=w1200" alt="Logos Institucionais">
         </div>
@@ -82,7 +75,7 @@
         </div>
     </header>
 
-    <nav aria-label="Menu principal">
+    <nav>
         <ul>
             <li><a href="#boas-vindas">Boas-vindas</a></li>
             <li><a href="#video-aula">Vídeo Aula</a></li>
@@ -97,57 +90,40 @@
 
     <main class="container">
         
-        <section id="boas-vindas" class="card" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <h2 class="section-title">Boas-vindas!</h2>
-                <p style="font-size: 19px; margin-top: 20px;">
-                    Neste primeiro módulo, exploramos os fundamentos teóricos e bioéticos que sustentam a Atenção Primária à Saúde no SUS.
-                </p>
-                <div style="background: #fdf5e6; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #E67E22;" role="note">
-                    <p><strong>🎧 Recomendação:</strong> Utilize <strong>fones de ouvido</strong> e uma <strong>boa conexão</strong> para os vídeos e áudios.</p>
-                </div>
-            </div>
-            <img src="https://drive.google.com/thumbnail?id=1IXNQxJmmbvzaDUR6vkedmBhs0KtBpltH&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;" alt="Acolhimento na UBS">
+        <section id="boas-vindas" class="card">
+            <h2 class="section-title">Boas-vindas!</h2>
+            <p style="font-size: 19px; margin-top: 20px;">Neste primeiro módulo, exploramos os fundamentos teóricos e bioéticos da APS no SUS.</p>
+            <img src="https://drive.google.com/thumbnail?id=1IXNQxJmmbvzaDUR6vkedmBhs0KtBpltH&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px; margin-top: 20px;" alt="Acolhimento">
         </section>
 
         <section id="video-aula" class="card" style="text-align: center;">
             <h2 class="section-title">Vídeo Aula</h2>
-            <div class="video-box">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_w2v3LpKPhY" title="Vídeo aula Módulo 1" frameborder="0" allowfullscreen></iframe>
+            <div style="width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; background: #000; margin-top: 20px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_w2v3LpKPhY" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
 
         <section id="mapa-mental" class="card" style="text-align: center;">
             <h2 class="section-title">Mapa Mental</h2>
-            <a href="https://drive.google.com/file/d/157uLAMUv_k9r0h4XT1BTGZ2dN57xseTG/view?usp=sharing" target="_blank">
-                <img src="https://drive.google.com/thumbnail?id=157uLAMUv_k9r0h4XT1BTGZ2dN57xseTG&sz=w1200" class="img-full" alt="Mapa Mental Módulo 1">
-            </a>
+            <img src="https://drive.google.com/thumbnail?id=157uLAMUv_k9r0h4XT1BTGZ2dN57xseTG&sz=w1200" class="img-full" alt="Mapa Mental">
         </section>
 
         <section id="infografico" class="card" style="text-align: center;">
             <h2 class="section-title">Infográfico</h2>
-            <a href="https://drive.google.com/file/d/1PguznFYGE_rrMwrrDxfqKN982XRBpGDq/view?usp=sharing" target="_blank">
-                <img src="https://drive.google.com/thumbnail?id=1PguznFYGE_rrMwrrDxfqKN982XRBpGDq&sz=w1200" class="img-full" alt="Infográfico Módulo 1">
-            </a>
+            <img src="https://drive.google.com/thumbnail?id=1PguznFYGE_rrMwrrDxfqKN982XRBpGDq&sz=w1200" class="img-full" alt="Infográfico">
         </section>
 
         <section id="podcast" class="card">
             <div class="podcast-row">
                 <div class="audio-card">
                     <h2 class="section-title">Podcast</h2>
-                    <p style="margin: 20px 0;">Debate sobre "A Armadilha da Igualdade" e barreiras de acesso na APS.</p>
-                    <a href="https://drive.google.com/file/d/1-0HR0b_uLn2cFGDxDLE3bg7VKNclH--B/view?usp=sharing" target="_blank" class="btn-action">OUVIR / BAIXAR ▶</a>
+                    <p style="margin: 20px 0;">Debate sobre barreiras de acesso na APS.</p>
+                    <a href="https://drive.google.com/file/d/1-0HR0b_uLn2cFGDxDLE3bg7VKNclH--B/view?usp=sharing" target="_blank" class="btn-action">OUVIR ▶</a>
                 </div>
-                <div class="flip-card" tabindex="0">
+                <div class="flip-card">
                     <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <h3>Reflexão 1</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"Igualdade ignora as desigualdades; Equidade as reconhece."</p>
-                        </div>
-                        <div class="flip-back">
-                            <h3>Reflexão 2</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"Equidade é garantir o direito de todos através do cuidado específico."</p>
-                        </div>
+                        <div class="flip-front"><h3>Reflexão 1</h3></div>
+                        <div class="flip-back"><h3>Reflexão 2</h3></div>
                     </div>
                 </div>
             </div>
@@ -155,22 +131,18 @@
 
         <section id="avaliacao" class="card" style="text-align: center; border: 3px dashed #E67E22;">
             <h2 class="section-title">Avaliação Final</h2>
-            <p style="margin: 20px 0; font-size: 20px; font-weight: 600; color: #628141;">Venha testar seu aprendizado!</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAEtxrhOhFkILDObXlBDE5wsfjn9obw1Wj6aRtCqeEniWVKQ/viewform?usp=dialog" target="_blank" class="btn-action btn-aval">ACESSAR FORMULÁRIO 📝</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAEtxrhOhFkILDObXlBDE5wsfjn9obw1Wj6aRtCqeEniWVKQ/viewform" target="_blank" class="btn-action btn-aval">ACESSAR FORMULÁRIO 📝</a>
         </section>
 
         <section id="referencias" class="card">
             <h2 class="section-title">Referências Bibliográficas</h2>
-            <div style="margin-top: 25px;">
-                <p class="ref-item">1. Turesso, J. F.; Mélo, T. R. Equidade em saúde na APS no Brasil.</p>
-                <p class="ref-item">2. Silva Júnior, V. B. et al. Primary Health Care & Equity.</p>
-                <p class="ref-item" style="color: #666; font-size: 13px; border-left: 4px solid #628141;"><strong>3. Nota de Transparência:</strong> Este material contou com suporte de IA Gemini para estruturação e acessibilidade.</p>
-            </div>
+            <p>1. Turesso, J. F.; Mélo, T. R. Equidade em saúde na APS no Brasil.</p>
+            <p>2. Silva Júnior, V. B. et al. Primary Health Care & Equity.</p>
         </section>
 
         <section id="creditos" class="card">
             <h2 class="section-title">Créditos</h2>
-            <ul style="list-style: none; line-height: 2;">
+            <ul style="list-style: none; margin-top: 20px;">
                 <li><strong>Organização:</strong> Maryella Lara Krug</li>
                 <li><strong>Curso:</strong> Farmácia / UFSC</li>
                 <li><strong>Realização:</strong> Grupo PET 1</li>
