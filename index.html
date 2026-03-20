@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 3 - Desafios na APS - PET1</title>
     <style>
-        /* IDENTIDADE VISUAL MÓDULO 3 - VERDE VIBRANTE */
+        /* MANTENDO O VERDE VIBRANTE DO MÓDULO 3 */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body { background-color: #f0fdf4; color: #1a2a26; scroll-behavior: smooth; }
         
@@ -24,7 +24,7 @@
             font-size: 24px; margin: 25px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* NAVEGAÇÃO PADRONIZADA */
+        /* NAVEGAÇÃO POR ABAS */
         nav { 
             background: white; position: sticky; top: 0; z-index: 1000; 
             border-bottom: 4px solid #00FF9C; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -43,7 +43,6 @@
         
         .btn-action { background: #0b1416; color: #00FF9C; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
         .btn-action:hover { background: #2ecc71; color: white; transform: scale(1.05); }
-        .btn-aval { width: 100%; text-align: center; font-size: 20px; margin-top: 15px; }
 
         .podcast-row { display: flex; gap: 30px; align-items: stretch; flex-wrap: wrap; margin-top: 20px; }
         .audio-card { background: #f0fff4; border: 2px solid #dcfce7; border-radius: 40px; padding: 40px; flex: 1.5; min-width: 300px; }
@@ -56,23 +55,22 @@
         .flip-back { background: #ffffff; color: #2ecc71; border: 6px solid #00FF9C; transform: rotateY(180deg); }
 
         .ref-item { border-left: 4px solid #00FF9C; padding-left: 15px; margin-bottom: 15px; font-size: 15px; line-height: 1.6; }
-        .creditos-list { list-style: none; margin-top: 20px; font-size: 17px; line-height: 1.8; }
         footer { background: #0b1416; color: white; padding: 60px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="banner-logos">
-        <img src="https://drive.google.com/thumbnail?id=1QOIXz4Wz_mh7SOvM4KU6Jy7LJb3I3f3o&sz=w1200" alt="Logos Institucionais">
+        <img src="https://drive.google.com/thumbnail?id=1QOIXz4Wz_mh7SOvM4KU6Jy7LJb3I3f3o&sz=w1200" alt="Logos">
     </div>
 
     <header class="hero">
         <h1>Desafios na Atenção Primária à Saúde</h1>
         <div class="mod-pill">MÓDULO 3</div>
-        <p style="font-size: 20px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores e Determinantes Sociais</p>
+        <p style="font-size: 20px; font-weight: 600;">O trabalho na APS: Visão dos Trabalhadores</p>
     </header>
 
-    <nav aria-label="Navegação Principal">
+    <nav>
         <ul>
             <li><a href="#boas-vindas">Boas-vindas</a></li>
             <li><a href="#video-aula">Vídeo Aula</a></li>
@@ -91,57 +89,50 @@
             <div style="flex: 1; min-width: 300px;">
                 <h2 class="section-title">Boas-vindas!</h2>
                 <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
-                    Seja bem-vindo ao Módulo 3. Aqui, analisamos as barreiras estruturais e os desafios práticos enfrentados pelos profissionais da APS. Através de uma perspectiva crítica, discutimos como os determinantes sociais moldam a saúde no território.
+                    Seja bem-vindo ao Módulo 3. Vamos analisar as barreiras estruturais e os desafios práticos enfrentados pelos profissionais da APS, discutindo determinantes sociais através de uma perspectiva crítica.
                 </p>
-                <div style="background: #e6fffa; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #00FF9C;">
-                    <p style="font-size: 14px;"><strong>Nota:</strong> Este conteúdo explora as bases da necropolítica e das relações de classe na saúde brasileira.</p>
-                </div>
             </div>
-            <img src="https://drive.google.com/thumbnail?id=1IXNQxJmmbvzaDUR6vkedmBhs0KtBpltH&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;" alt="Acolhimento">
+            <img src="https://drive.google.com/thumbnail?id=1IXNQxJmmbvzaDUR6vkedmBhs0KtBpltH&sz=w1000" style="width: 100%; max-width: 400px; border-radius: 30px;">
         </section>
 
         <section id="video-aula" class="card" style="text-align: center;">
             <h2 class="section-title">Vídeo Aula</h2>
-            <span class="section-subtitle">Análise crítica dos desafios operacionais e sistêmicos da APS.</span>
+            <span class="section-subtitle">Análise crítica dos desafios operacionais da APS.</span>
             <div class="video-box">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO_AQUI" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/O_ID_DO_SEU_VIDEO" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
 
         <section id="mapa-mental" class="card" style="text-align: center;">
             <h2 class="section-title">Mapa Mental</h2>
-            <span class="section-subtitle">Estrutura visual dos determinantes sociais e barreiras de acesso.</span>
-            <a href="LINK_DO_SEU_MAPA_MENTAL_MOD3" target="_blank">
-                <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_MOD3&sz=w1200" class="img-full" alt="Mapa Mental Módulo 3">
+            <span class="section-subtitle">Determinantes sociais e barreiras de acesso.</span>
+            <a href="LINK_DO_DRIVE" target="_blank">
+                <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_AQUI&sz=w1200" class="img-full">
             </a>
         </section>
 
         <section id="infografico" class="card" style="text-align: center;">
             <h2 class="section-title">Infográfico</h2>
-            <span class="section-subtitle">Desafios na APS: Da vulnerabilidade ao cuidado integral.</span>
-            <a href="LINK_DO_SEU_INFOGRAFICO_MOD3" target="_blank">
-                <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_MOD3&sz=w1200" class="img-full" alt="Infográfico Módulo 3">
-            </a>
+            <span class="section-subtitle">Desafios na APS: Da vulnerabilidade ao cuidado.</span>
+            <img src="https://drive.google.com/thumbnail?id=ID_DA_IMAGEM_AQUI&sz=w1200" class="img-full">
         </section>
 
         <section id="podcast" class="card">
             <div class="podcast-row">
                 <div class="audio-card">
                     <h2 class="section-title">Podcast</h2>
-                    <p style="margin: 20px 0; font-size: 16px; line-height: 1.6;">
-                        Debate sobre o racismo estrutural e a luta de classes dentro do contexto da saúde pública brasileira.
-                    </p>
-                    <a href="LINK_DO_SEU_AUDIO_MOD3" target="_blank" class="btn-action">OUVIR PODCAST ▶</a>
+                    <p style="margin: 20px 0; font-size: 16px; line-height: 1.6;">Debate sobre racismo estrutural e classes na saúde.</p>
+                    <a href="LINK_DO_AUDIO" target="_blank" class="btn-action">OUVIR PODCAST ▶</a>
                 </div>
-                <div class="flip-card" tabindex="0">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
                             <h3>Reflexão 1</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"A saúde não é apenas ausência de doença, é um campo de disputa política e social."</p>
+                            <p style="margin-top: 15px; font-style: italic;">"A saúde é um campo de disputa política e social."</p>
                         </div>
                         <div class="flip-back">
                             <h3>Reflexão 2</h3>
-                            <p style="margin-top: 15px; font-style: italic;">"Reconhecer a necropolítica é o primeiro passo para humanizar o SUS."</p>
+                            <p style="margin-top: 15px; font-style: italic;">"Reconhecer a necropolítica humaniza o cuidado."</p>
                         </div>
                     </div>
                 </div>
@@ -151,29 +142,27 @@
         <section id="avaliacao" class="card" style="text-align: center; border: 3px dashed #00FF9C;">
             <h2 class="section-title">Avaliação Final</h2>
             <p style="margin-top: 10px; font-size: 20px; font-weight: 600; color: #2ecc71;">Venha testar seu aprendizado!</p>
-            <a href="LINK_DO_SEU_FORMS_MOD3" target="_blank" class="btn-action btn-aval">ACESSAR FORMULÁRIO 📝</a>
+            <a href="LINK_DO_FORMS" target="_blank" class="btn-action" style="width:100%; text-align:center;">ACESSAR FORMULÁRIO 📝</a>
         </section>
 
         <section id="referencias" class="card">
             <h2 class="section-title">Referências Bibliográficas</h2>
             <div style="margin-top: 25px;">
-                <p class="ref-item">1. DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> São Paulo: Boitempo, 2016.</p>
-                <p class="ref-item">2. MBEMBE, Achille. <strong>Necropolítica.</strong> São Paulo: n-1 edições, 2018.</p>
-                <p class="ref-item">3. MOURA, Clóvis. <strong>Racismo e luta de classes no Brasil.</strong> Editora Terra Sem Amos, 2020.</p>
-                <p class="ref-item" style="color: #666; font-size: 13px; border-left: 4px solid #2ecc71;"><strong>4. Nota de Transparência:</strong> Este material contou com o suporte da IA Gemini (Google) para estruturação de código, design e síntese pedagógica.</p>
+                <p class="ref-item">1. DAVIS, Angela. <strong>Mulheres, raça e classe.</strong> 2016.</p>
+                <p class="ref-item">2. MBEMBE, Achille. <strong>Necropolítica.</strong> 2018.</p>
+                <p class="ref-item">3. MOURA, Clóvis. <strong>Racismo e luta de classes no Brasil.</strong> 2020.</p>
+                <p class="ref-item" style="color: #666; font-size: 13px; border-left: 4px solid #2ecc71;"><strong>4. Nota de Transparência:</strong> Este material contou com o suporte da IA Gemini para estruturação de código.</p>
             </div>
         </section>
 
         <section id="creditos" class="card">
             <h2 class="section-title">Créditos</h2>
-            <ul class="creditos-list">
+            <ul style="list-style: none; margin-top: 20px; font-size: 17px; line-height: 1.8;">
                 <li><strong>Desenvolvimento:</strong> Guilherme Luiz de Freitas</li>
                 <li><strong>Curso:</strong> Administração / UFSC</li>
                 <li><strong>Realização:</strong> Grupo PET 1</li>
-                <li><strong>Parceria:</strong> UFSC, UDESC e Prefeitura de Florianópolis/SC</li>
             </ul>
         </section>
-
     </main>
 
     <footer>
